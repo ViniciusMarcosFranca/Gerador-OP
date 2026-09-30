@@ -16,14 +16,14 @@
     top: 0;
     width: 100%;
     margin: 0;
-    padding: 10px;
+    padding: 0;
     box-sizing: border-box;
   }
   
-  /* Ajustes para caber em A4 */
+  /* Ajustes para caber em A4 Paisagem */
   @page {
-    size: A4;
-    margin: 1cm;
+    size: A4 landscape;
+    margin: 5mm;
   }
   
   /* Forçar quebras de página */
@@ -31,8 +31,14 @@
     page-break-after: always;
   }
   
-  /* Esconder botões na impressão */
+  /* Esconder botões e elementos não imprimíveis */
   .no-print {
     display: none !important;
+  }
+
+  /* Forçar cores de fundo na impressão (para os cabeçalhos amarelos/azuis) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
