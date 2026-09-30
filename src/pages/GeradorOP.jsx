@@ -194,8 +194,7 @@ export default function GeradorOP() {
             <th className="border border-black p-1" rowSpan="2">Ref. tela</th>
             <th className="border border-black p-1" rowSpan="2">Ref. Faca</th>
             <th className="border border-black p-1" rowSpan="2">INDUSTRIAL</th>
-            <th className="border border-black p-1" rowSpan="2">Modelo</th>
-            <th className="border border-black p-1" rowSpan="2">RECEITA<br/>PRODUTO</th>
+            <th className="border border-black p-1 w-[280px]" rowSpan="2">Modelo</th>
             <th className="border border-black p-1" rowSpan="2">CLIENTE</th>
             <th className="border border-black p-1" colSpan="5">CAMADAS DE LAMINAÇÕES<br/>SEQUÊNCIA DE CIMA PARA BAIXO</th>
             <th className="border border-black p-1" rowSpan="2">QTDE<br/>PEDIDO</th>
@@ -226,7 +225,6 @@ export default function GeradorOP() {
                 <td className="border border-black p-1 font-bold">{item.itemData?.knife_ref || ''}</td>
                 <td className="border border-black p-1 font-bold">{item.itemData?.sku || ''}</td>
                 <td className="border border-black p-1 font-bold text-[10px] text-left">{item.itemData?.description || ''}</td>
-                <td className="border border-black p-1 font-bold">{selectedLineType?.recipe_type || ''}</td>
                 <td className="border border-black p-1 font-bold text-red-600">{item.itemData?.client?.name || ''}</td>
                 <td className="border border-black p-1">{recipeParts[0] || ''}</td>
                 <td className="border border-black p-1">{recipeParts[1] || ''}</td>
@@ -263,8 +261,7 @@ export default function GeradorOP() {
         <thead>
           <tr className="bg-gray-50">
             <th className="border border-black p-1" rowSpan="2">INDUSTRIAL</th>
-            <th className="border border-black p-1" rowSpan="2">Modelo</th>
-            <th className="border border-black p-1" rowSpan="2">RECEITA<br/>PRODUTO</th>
+            <th className="border border-black p-1 w-[280px]" rowSpan="2">Modelo</th>
             <th className="border border-black p-1" rowSpan="2">CLIENTE</th>
             <th className="border border-black p-1" rowSpan="2">QTDE<br/>PEDIDO</th>
             <th className="border border-black p-1" colSpan="10">QUANTIDADES POR LOTE</th>
@@ -290,7 +287,6 @@ export default function GeradorOP() {
               <tr key={index}>
                 <td className="border border-black p-1 font-bold">{item.itemData?.sku || ''}</td>
                 <td className="border border-black p-1 font-bold text-[10px] text-left">{item.itemData?.description || ''}</td>
-                <td className="border border-black p-1 font-bold">{selectedLineType?.recipe_type || ''}</td>
                 <td className="border border-black p-1 font-bold text-red-600">{item.itemData?.client?.name || ''}</td>
                 <td className="border border-black p-1 font-bold text-sm">{item.quantity}</td>
                 <td className="border border-black p-2"></td>
