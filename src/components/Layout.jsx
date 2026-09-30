@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LayoutDashboard, FileText, Package, Database, LogOut } from 'lucide-react';
+import { LayoutDashboard, FileText, Package, Database, LogOut, ClipboardList } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export function Layout() {
@@ -10,6 +10,7 @@ export function Layout() {
   const navigation = [
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
     { name: 'Gerar OP', href: '/gerador', icon: FileText },
+    { name: 'OPs Emitidas', href: '/historico', icon: ClipboardList },
     { name: 'Itens', href: '/itens', icon: Package },
     { name: 'Cadastros Base', href: '/cadastros', icon: Database },
   ];

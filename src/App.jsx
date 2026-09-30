@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import GeradorOP from './pages/GeradorOP';
 import Itens from './pages/Itens';
 import Cadastros from './pages/Cadastros';
+import HistoricoOPs from './pages/HistoricoOPs';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -34,6 +35,7 @@ function AppRoutes() {
       >
         <Route index element={<Dashboard />} />
         <Route path="gerador" element={<GeradorOP />} />
+        <Route path="historico" element={<HistoricoOPs />} />
         <Route path="itens" element={<Itens />} />
         <Route path="cadastros" element={<Cadastros />} />
       </Route>
