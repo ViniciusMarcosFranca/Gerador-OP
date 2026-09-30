@@ -192,7 +192,7 @@ export default function GeradorOP() {
           <tr className="bg-gray-50">
             <th className="border border-black p-1" rowSpan="2">Prioridade</th>
             <th className="border border-black p-1" rowSpan="2">Ref. tela</th>
-            <th className="border border-black p-1" rowSpan="2">REF. Arte</th>
+            <th className="border border-black p-1" rowSpan="2">Ref. Faca</th>
             <th className="border border-black p-1" rowSpan="2">INDUSTRIAL</th>
             <th className="border border-black p-1" rowSpan="2">Modelo</th>
             <th className="border border-black p-1" rowSpan="2">RECEITA<br/>PRODUTO</th>
@@ -223,7 +223,7 @@ export default function GeradorOP() {
               <tr key={index}>
                 <td className="border border-black p-2 font-bold text-sm">{index + 1}</td>
                 <td className="border border-black p-1 font-bold">{item.itemData?.screen_ref || ''}</td>
-                <td className="border border-black p-1"></td>
+                <td className="border border-black p-1 font-bold">{item.itemData?.knife_ref || ''}</td>
                 <td className="border border-black p-1 font-bold">{item.itemData?.sku || ''}</td>
                 <td className="border border-black p-1 font-bold text-[10px] text-left">{item.itemData?.description || ''}</td>
                 <td className="border border-black p-1 font-bold">{selectedLineType?.recipe_type || ''}</td>
@@ -237,7 +237,7 @@ export default function GeradorOP() {
                 <td className="border border-black p-1 font-bold text-blue-800 text-sm">{Math.ceil(item.quantity * 1.1)}</td>
                 <td className="border border-black p-1 font-bold text-sm"></td>
                 <td className="border border-black p-1 font-bold text-sm"></td>
-                <td className="border border-black p-1 text-red-600 font-bold">260</td>
+                <td className="border border-black p-1 text-red-600 font-bold">{item.itemData?.min_coil_width || ''}</td>
                 <td className="border border-black p-1"></td>
                 <td className="border border-black p-1"></td>
                 <td className="border border-black p-1"></td>
