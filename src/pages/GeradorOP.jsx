@@ -233,8 +233,8 @@ export default function GeradorOP() {
                 <td className="border border-black p-1">{recipeParts[4] || ''}</td>
                 <td className="border border-black p-1 font-bold text-sm">{item.quantity}</td>
                 <td className="border border-black p-1 font-bold text-blue-800 text-sm">{Math.ceil(item.quantity * 1.1)}</td>
-                <td className="border border-black p-1 font-bold text-sm"></td>
-                <td className="border border-black p-1 font-bold text-sm"></td>
+                <td className="border border-black p-1 font-bold text-sm">{(((Math.ceil(item.quantity * 1.1) / 6) * 350) / 1000).toFixed(2)}</td>
+                <td className="border border-black p-1 font-bold text-sm">{Math.ceil(Math.ceil(item.quantity * 1.1) / 6)}</td>
                 <td className="border border-black p-1 text-red-600 font-bold">{item.itemData?.min_coil_width || ''}</td>
                 <td className="border border-black p-1"></td>
                 <td className="border border-black p-1"></td>

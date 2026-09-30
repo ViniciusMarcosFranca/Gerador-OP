@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase';
 import { Plus, Trash2, Edit2 } from 'lucide-react';
 
 const TABLES = [
-  { id: 'clients', name: 'Clientes', fields: [{ key: 'name', label: 'Nome' }, { key: 'cnpj', label: 'CNPJ' }] },
+  { id: 'clients', name: 'Clientes', fields: [{ key: 'name', label: 'Nome' }, { key: 'cnpj', label: 'CNPJ', required: false }] },
   { id: 'op_types', name: 'Tipos de OP', fields: [{ key: 'name', label: 'Nome (Ex: Impressão, Laminação)' }] },
   { id: 'line_types', name: 'Tipos de Linha', fields: [{ key: 'name', label: 'Nome' }, { key: 'recipe_type', label: 'Tipo de Receita' }] },
   { id: 'screen_types', name: 'Tipos de Tela', fields: [{ key: 'name', label: 'Nome' }] },
@@ -90,7 +90,7 @@ export default function Cadastros() {
               <label className="block text-sm font-medium text-gray-700 mb-1">{field.label}</label>
               <input
                 type="text"
-                required
+                required={field.required !== false}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 value={formData[field.key] || ''}
                 onChange={e => setFormData({ ...formData, [field.key]: e.target.value })}
