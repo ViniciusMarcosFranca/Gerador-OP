@@ -54,9 +54,17 @@ export default function Itens() {
   }
 
   async function handleDelete(id) {
-    if (!window.confirm('Excluir item?')) return;
-    await supabase.from('items').delete().eq('id', id);
-    fetchData();
+    if (!window.confirm('Excluir este item? Esta ação não poderá ser desfeita.')) return;
+    const { error } = await supabase.from('items').delete().eq('id', id);
+    if (error) {
+      if (error.message.includes('foreign key') || error.message.includes('referenced')) {
+        alert('⚠️ Este item não pode ser excluído pois está vinculado a uma ou mais Ordens de Produção.\n\nPara excluir, você precisaria remover o item das OPs em que ele aparece primeiro.');
+      } else {
+        alert('Erro ao excluir: ' + error.message);
+      }
+    } else {
+      fetchData();
+    }
   }
 
   function handleEdit(item) {
