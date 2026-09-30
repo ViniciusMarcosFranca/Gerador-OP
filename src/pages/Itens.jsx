@@ -28,14 +28,29 @@ export default function Itens() {
     e.preventDefault();
     if (editingId) {
       const { error } = await supabase.from('items').update(formData).eq('id', editingId);
-      if (!error) fetchData();
+      if (!error) {
+        fetchData();
+        setFormData({});
+        setEditingId(null);
+      } else {
+        alert('Erro ao atualizar: ' + error.message);
+      }
     } else {
-      const { error } = await supabase.from('items').insert([formData]);
-      if (!error) fetchData();
-      else alert('Erro: ' + error.message);
+      // Verifica se SKU já existe para decidir entre inserir ou atualizar
+      const { data: existing } = await supabase.from('items').select('id').eq('sku', formData.sku).maybeSingle();
+      if (existing) {
+        const confirmar = window.confirm(`O SKU "${formData.sku}" já está cadastrado. Deseja atualizar os dados desse item?`);
+        if (!confirmar) return;
+        const { error } = await supabase.from('items').update(formData).eq('id', existing.id);
+        if (!error) { fetchData(); setFormData({}); }
+        else alert('Erro ao atualizar: ' + error.message);
+      } else {
+        const { error } = await supabase.from('items').insert([formData]);
+        if (!error) { fetchData(); setFormData({}); }
+        else alert('Erro ao inserir: ' + error.message);
+      }
+      setEditingId(null);
     }
-    setFormData({});
-    setEditingId(null);
   }
 
   async function handleDelete(id) {
